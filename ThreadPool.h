@@ -122,7 +122,6 @@ inline ThreadPool::~ThreadPool()
     // 所有线程汇合
     for(std::thread &worker: workers)
         worker.join();
-    int i = 1
 }
 
 #endif
