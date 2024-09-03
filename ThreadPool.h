@@ -80,6 +80,7 @@ auto ThreadPool::enqueue(F&& f, Args&&... args)
     // 指定“返回值类型”别名
     using return_type = typename std::result_of<F(Args...)>::type;
 
+
     // 将bind()函数包装起来并分配其智能指针给task变量
     auto task = std::make_shared< std::packaged_task<return_type()> >(
             std::bind(std::forward<F>(f), std::forward<Args>(args)...)
@@ -121,6 +122,7 @@ inline ThreadPool::~ThreadPool()
     // 所有线程汇合
     for(std::thread &worker: workers)
         worker.join();
+    int i = 1
 }
 
 #endif
